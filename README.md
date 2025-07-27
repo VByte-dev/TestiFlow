@@ -16,7 +16,7 @@ No fluff. Just what works.
 ## 🤝 Join the Waitlist
 
 [Join Waitlist](https://testiflow.vercel.app)
-Join early, because the best tools are built with you.
+, because the best tools are built with you.
 
 
 ## ⚡ Status
