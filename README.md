@@ -13,7 +13,7 @@ Most testimonial tools are packed with features you don't need and pricing you c
 
 No fluff. Just what works.
 
-## ✨ Join the Waitlist
+## 🤝 Join the Waitlist
 
 Your best email — that’s it.  
 **Join early** and help shape a better, simpler way to build trust.
