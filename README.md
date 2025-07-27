@@ -6,10 +6,9 @@
 > “Turn feedbacks into fuel with TestiFlow, without burning your wallet on bloated tools.”
 
 
-## 🌿 Why TestiFlow
+## 🌿 Why I Built TestiFlow
 
-Most testimonial tools are packed with features you don't need and pricing you can't justify.  
-**TestiFlow** is built to simplify how you display feedback - clean, fast, and affordable.
+I just needed a simple way to show what people say about my product. But every testimonial tool I found was packed with features I didn’t need and pricing I couldn’t justify. Why pay so much for what should be simple? That frustration pushed me to build TestiFlow, a tool that turns feedback into fuel without burning your budget. I’m building it for myself, and for every maker who's tired of overpaying for basic tools.
 
 No fluff. Just what works.
 
