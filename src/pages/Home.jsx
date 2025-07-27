@@ -103,7 +103,7 @@ let Home = () => {
             <i className="ri-global-line hover:text-[#ff69b4] hover:translate-y-[-4px] transition-transform active:text-[#ff1493]"></i>
           </Link>
           <Link
-            to={"https://www.linkedin.com/in/vedhesh-narayanan-m-750a52283"}
+            to={"https://www.linkedin.com/in/vedhesh-narayanan-m-750a52283/?original_referer=https%3A%2F%2Fvbyte-dev.vercel.app%2F"}
             target="_blank"
           >
             <i className="ri-linkedin-fill hover:text-[#ff69b4] hover:translate-y-[-4px] transition-transform active:text-[#ff1493]"></i>
