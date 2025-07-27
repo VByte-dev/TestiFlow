@@ -15,10 +15,8 @@ No fluff. Just what works.
 
 ## 🤝 Join the Waitlist
 
-Your best email — that’s it.  
-**Join early** and help shape a better, simpler way to build trust.
-
-[🔗 Join Waitlist](https://testiflow.vercel.app)
+[Join Waitlist](https://testiflow.vercel.app)
+Join early, because the best tools are built with you.
 
 
 ## ⚡ Status
@@ -26,8 +24,3 @@ Your best email — that’s it.
 🚧 MVP in development  
 💬 Feedback welcome  
 📬 Waitlist open
-
-
-## 📄 License
-
-MIT
