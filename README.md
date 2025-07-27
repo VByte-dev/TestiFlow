@@ -1,8 +1,31 @@
-# React + Vite
+# TestiFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TestiFlow** turns scattered feedback into clean, high-converting social proof — helping anyone build trust online without wasting time or budget.
 
-Currently, two official plugins are available:
+Simple to use, beautiful by default, and made for everyone — indie hackers, creators, freelancers, startups, and beyond.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## 🚀 Live Preview
+
+[https://testiflow.vercel.app](https://testiflow.vercel.app)
+
+---
+
+## 💌 Join the Waitlist
+
+Be among the first to try it.  
+Early access, low pricing, and community-driven feedback shaping the future.
+
+---
+
+## 🛠️ Status
+
+✅ MVP live  
+🔄 Actively improving based on real-world feedback
+
+---
+
+## 📄 License
+
+MIT
