@@ -7,10 +7,10 @@ let Collect = () => {
   return (
     <>
       <div className="">
-        {/* ProjectName */}
+        {/* ProjectName
         <section className="my-8 mx-8 md:my-10 md:mx-10 flex justify-end">
           <ProjectName />
-        </section>
+        </section> */}
       </div>
     </>
   );

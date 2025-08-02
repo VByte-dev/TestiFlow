@@ -49,7 +49,7 @@ let Layout = () => {
           </div>
         </div>
         {/* Functional Screen */}
-        <div className="flex-1 overflow-y-auto bg-[#F0F8FF]">
+        <div className="flex-1 h-screen overflow-y-auto bg-[#F0F8FF]">
           <Routes>
             <Route path="/collect" element={<Collect />} />
             <Route path="/manage" element={<Manage />} />
