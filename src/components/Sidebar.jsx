@@ -88,7 +88,7 @@ let Sidebar = (props) => {
         </div>
 
         {/* LogOut */}
-        <div className="absolute w-full bottom-0">
+        <div className="absolute w-full bottom-4">
           <LogOut />
         </div>
       </div>
