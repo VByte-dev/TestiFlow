@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import { SignOutButton } from "@clerk/clerk-react";
 
 // Components
 import Profile from "./Profile";
@@ -89,7 +90,9 @@ let Sidebar = (props) => {
 
         {/* LogOut */}
         <div className="absolute w-full bottom-4">
-          <LogOut />
+          <div className="bg-black m-4 rounded text-center font-space py-2">
+            <SignOutButton  />
+          </div>
         </div>
       </div>
     </>

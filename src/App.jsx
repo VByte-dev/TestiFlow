@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import supabase from "./lib/supabaseClient";
 import { Routes, Route } from "react-router-dom";
+import { useUser } from "@clerk/clerk-react";
+import { useNavigate } from "react-router-dom";
 
 // Pages
 import Home from "./pages/Home";
@@ -8,25 +10,45 @@ import Collect from "./pages/Collect";
 import Manage from "./pages/Manage";
 import Customize from "./pages/Customize";
 import Embed from "./pages/Embed";
+import Auth from "./pages/Auth";
 
 // Components
 import Sidebar from "./components/Sidebar";
 
 function App() {
+  // console.log(supabase);
+  let { isLoaded, isSignedIn, user } = useUser();
+
+  useEffect(() => {
+    if (isLoaded && isSignedIn) {
+      console.log(`User: ${user.username}`);
+    } else if (isLoaded && !isSignedIn) {
+      console.log("No user signed in.");
+    }
+  }, [isLoaded, isSignedIn, user]);
+
   return (
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/app/*" element={<Layout />} />
+        <Route
+          path="/app/*"
+          element={<Layout auth={[isLoaded, isSignedIn, user]} />}
+        />
+        <Route path="/auth/*" element={<Auth />} />
       </Routes>
     </>
   );
 }
 
-let Layout = () => {
-  // Handle Sidebar
+let Layout = (props) => {
+  // Destructuring props
+  let { auth } = props;
+  let [isLoaded, isSignedIn, user] = auth;
+
+  // Sidebar Status
   let [isSidebar, setSidebar] = useState(true);
-  console.log(supabase);
+
   return (
     <>
       <div className="">
