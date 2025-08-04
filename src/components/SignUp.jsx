@@ -16,7 +16,7 @@ let AuthSignUp = () => {
               card: "border-xl",
             },
             layout: {
-              unsafe_disableDevelopmentModeWarnings: true,
+              unsafe_disableDevelopmentModeWarnings: false,
             },
           }}
         />
