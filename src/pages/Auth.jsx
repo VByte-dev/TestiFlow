@@ -6,7 +6,7 @@ import AuthSignUp from "../components/SignUp";
 let Auth = () => {
   return (
     <>
-      <div className="flex justify-center py-60 bg-[#D8C6FF] h-screen">
+      <div className="flex justify-center items-center bg-[#D8C6FF] h-screen">
         <Routes>
           <Route path="/signup" element={<AuthSignUp />} />
           <Route path="/signin" element={<AuthSignIn />} />
