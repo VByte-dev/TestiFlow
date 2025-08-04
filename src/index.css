@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import '@clerk/themes/shadcn.css';
 @plugin 'tailwindcss-motion';
 
 /*
