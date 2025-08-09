@@ -15,9 +15,6 @@ let AuthSignUp = () => {
             elements: {
               card: "border-xl",
             },
-            layout: {
-              unsafe_disableDevelopmentModeWarnings: false,
-            },
           }}
         />
       </div>

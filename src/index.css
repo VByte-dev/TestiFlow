@@ -79,3 +79,6 @@ body {
   background-color: #F0F8FF;
   color: white;
 }
+button{
+  user-select: none;
+}

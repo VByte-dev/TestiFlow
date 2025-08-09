@@ -5,6 +5,7 @@ import { useUser } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom";
 
 // Pages
+import Project from "./pages/Project";
 import Home from "./pages/Home";
 import Collect from "./pages/Collect";
 import Manage from "./pages/Manage";
@@ -49,6 +50,16 @@ let Layout = (props) => {
   // Sidebar Status
   let [isSidebar, setSidebar] = useState(true);
 
+  // Project name
+  let [projectName, setProjectName] = useState('');
+  let getProjectName = (pN) => {
+    if (pN.length !== 0) {
+      setProjectName(pN);
+    } else {
+      setProjectName("Empty Project")
+    }
+  }
+
   return (
     <>
       <div className="">
@@ -62,9 +73,8 @@ let Layout = (props) => {
             }}
           >
             <div
-              className={`transition-transform duration-200 ${
-                isSidebar ? "rotate-180" : "0"
-              }`}
+              className={`transition-transform duration-200 ${isSidebar ? "rotate-180" : "0"
+                }`}
             >
               <i className="ri-arrow-right-s-line text-3xl text-[#1C1D46] transition-transform"></i>
             </div>
@@ -73,7 +83,8 @@ let Layout = (props) => {
         {/* Functional Screen */}
         <div className="flex-1 h-screen overflow-y-auto bg-[#F0F8FF]">
           <Routes>
-            <Route path="/collect" element={<Collect />} />
+            <Route path="/project" element={<Project getProjectName={getProjectName} />}></Route>
+            <Route path="/collect" element={<Collect projectName={projectName} />} />
             <Route path="/manage" element={<Manage />} />
             <Route path="/customize" element={<Customize />} />
             <Route path="/embed" element={<Embed />} />

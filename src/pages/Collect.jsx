@@ -3,14 +3,17 @@ import React from "react";
 // Components
 import ProjectName from "../components/ProjectName";
 
-let Collect = () => {
+let Collect = (props) => {
+  // Destructuring props
+  let { projectName } = props;
+  console.log("Project Name: ", projectName);
+
   return (
     <>
       <div className="">
-        {/* ProjectName
         <section className="my-8 mx-8 md:my-10 md:mx-10 flex justify-end">
-          <ProjectName />
-        </section> */}
+          <ProjectName projectName={projectName} />
+        </section>
       </div>
     </>
   );

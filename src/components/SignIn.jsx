@@ -6,7 +6,7 @@ let AuthSignIn = () => {
     <>
       <div>
         <SignIn
-        afterSignInUrl={'/app'}
+          afterSignInUrl={'/app'}
           appearance={{
             variables: {
               fontFamily: "Bricolage Grotesque",
@@ -14,9 +14,6 @@ let AuthSignIn = () => {
             },
             elements: {
               card: "border-xl",
-            },
-            layout: {
-              unsafe_disableDevelopmentModeWarnings: true,
             },
           }}
         />
