@@ -28,7 +28,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <h2 className="text-lg">Project </h2>
-                <i class="ri-arrow-right-line text-xl"></i>
+                <i className="ri-arrow-right-line text-xl"></i>
               </div>
             )}
           </NavLink>

@@ -42,7 +42,7 @@ let Project = (props) => {
             <div className="border-2 border-[#cab1ff] rounded-md py-2 min-h-100 select-none">
               {/* Existing project */}
               {
-                project.length === 0 ? <h1 className="text-center font-bricolage text-zinc-600 mt-10">No active projects</h1> : project.map((v, i, a) => <ProjectCard data={v} />)
+                project.length === 0 ? <h1 className="text-center font-bricolage text-zinc-600 mt-10">No active projects</h1> : project.map((v, i, a) => <ProjectCard data={v} key={i} />)
               }
 
             </div>
