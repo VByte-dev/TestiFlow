@@ -7,7 +7,8 @@ import Profile from "./Profile";
 
 let Sidebar = (props) => {
   // Destructuring Props
-  let { isSidebar } = props;
+  let { isSidebar, username } = props;
+  console.log("Username", username);
 
   return (
     <>
@@ -16,7 +17,7 @@ let Sidebar = (props) => {
           }`}
       >
         {/* Profile */}
-        <Profile />
+        <Profile username={username} />
 
         {/* Project */}
         <div className="my-8 font-space">

@@ -47,6 +47,23 @@ let Layout = (props) => {
   let { auth } = props;
   let [isLoaded, isSignedIn, user] = auth;
 
+  let navigateTo = useNavigate();
+  useEffect(() => {
+    if (isLoaded && !isSignedIn) {
+      navigateTo('/auth/signUp');
+    }
+  }, [isLoaded])
+
+  // Handling username
+  let [userName, setUserName] = useState("No User");
+  useEffect(() => {
+    if (isSignedIn) {
+      setUserName(user.username);
+    } else {
+      setUserName("No User");
+    }
+  }, [isLoaded])
+
   // Sidebar Status
   let [isSidebar, setSidebar] = useState(true);
 
@@ -65,7 +82,7 @@ let Layout = (props) => {
       <div className="">
         {/* Sidebar */}
         <div className="absolute flex h-screen">
-          <Sidebar isSidebar={isSidebar} />
+          <Sidebar isSidebar={isSidebar} username={userName} />
           <div
             className={`bg-[#D8C6FF] border-2 border-[#cab1ff] h-10 w-10 m-4 flex justify-center items-center rounded-md opacity-90 hover:opacity-100 active:opacity-100 transition-opacity`}
             onClick={() => {
@@ -94,5 +111,6 @@ let Layout = (props) => {
     </>
   );
 };
+
 
 export default App;
