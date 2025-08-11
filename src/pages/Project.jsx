@@ -8,9 +8,13 @@ import ProjectCard from "../components/ProjectCard";
 let Project = (props) => {
   // Destructuring props
   let { getProjectName } = props;
-  useEffect(() => {
-    getProjectName('');
-  }, []);
+
+  // Handling project name
+  let handleProjectName = (pN) => {
+    // console.log("Project name:", pN);
+    getProjectName(pN);
+    navigateTo('/app/collect')
+  }
 
   // Fetching project from supabase
   let [project, setProject] = useState([]);
@@ -27,6 +31,7 @@ let Project = (props) => {
     }
   };
 
+
   useEffect(() => {
     fetchData();
   }, [])
@@ -42,23 +47,14 @@ let Project = (props) => {
             <div className="border-2 border-[#cab1ff] rounded-md py-2 min-h-100 select-none">
               {/* Existing project */}
               {
-                project.length === 0 ? <h1 className="text-center font-bricolage text-zinc-600 mt-10">No active projects</h1> : project.map((v, i, a) => <ProjectCard data={v} key={i} />)
+                project.length === 0 ? <h1 className="text-center font-bricolage text-zinc-600 mt-10">No active projects</h1> : project.map((v, i, a) => <ProjectCard data={v} key={i} handleProjectName={handleProjectName} />)
               }
 
             </div>
-            <div className="mt-3 w-full">
-              <button className="bottom-0 rounded w-full bg-[black] h-10 text-white font-space" onClick={() => {
-                navigateTo('/app/collect')
-              }}>
-                Select Project
-              </button>
-            </div>
 
             {/* Divider */}
-            <div className="flex items-center my-20">
-              <div className="flex-grow border-t border-[black]"></div>
-              <span className="mx-3 text-sm text-black font-bricolage">OR</span>
-              <div className="flex-grow border-t border-[black]"></div>
+            <div className="flex items-center mt-20 mb-8">
+              <h2 className="font-bricolage text-zinc-700 text-md md:text-lg">Your next project begins here</h2>
             </div>
           </div>
           {/* New Project */}

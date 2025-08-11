@@ -8,7 +8,7 @@ import Profile from "./Profile";
 let Sidebar = (props) => {
   // Destructuring Props
   let { isSidebar, username } = props;
-  console.log("Username", username);
+  // console.log("Username", username);
 
   return (
     <>
@@ -24,18 +24,18 @@ let Sidebar = (props) => {
           <NavLink to="/app/project">
             {({ isActive }) => (
               <div
-                className={`text-[#1C1D46] py-2 px-6 m-4 rounded-full flex justify-between gap-4 items-center border-2 border-[#cab1ff] ${isActive ? "bg-[#F0F8FF]" : "bg-[#F0F8FF]"
+                className={`bg-[#1C1D46] text-[white] py-2 px-6 m-4 rounded-md flex justify-between items-center"
                   }`}
               >
                 <h2 className="text-lg">Project </h2>
-                <i className="ri-arrow-right-line text-xl"></i>
+                <i className="ri-folder-2-line text-lg"></i>
               </div>
             )}
           </NavLink>
         </div>
 
         {/* Features */}
-        <div id="features" className="my-10 font-dmsans">
+        <div id="features" className="my-10 font-space">
           {/* Collect */}
           <NavLink to="/app/collect">
             {({ isActive }) => (
@@ -44,7 +44,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <i className="ri-import-line text-lg"></i>
-                <h2 className="text-lg">Collect</h2>
+                <h2 className="text-lg font-semibold ">Collect</h2>
               </div>
             )}
           </NavLink>
@@ -57,7 +57,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <i className="ri-filter-3-line text-lg"></i>
-                <h2 className="text-lg">Manage</h2>
+                <h2 className="text-lg font-semibold">Manage</h2>
               </div>
             )}
           </NavLink>
@@ -70,7 +70,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <i className="ri-pencil-line text-lg"></i>
-                <h2 className="text-lg">Customize</h2>
+                <h2 className="text-lg font-semibold">Customize</h2>
               </div>
             )}
           </NavLink>
@@ -83,7 +83,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <i className="ri-clipboard-line text-lg"></i>
-                <h2 className="text-lg">Embed</h2>
+                <h2 className="text-lg font-semibold">Embed</h2>
               </div>
             )}
           </NavLink>
