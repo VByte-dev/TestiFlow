@@ -16,6 +16,12 @@ let Project = (props) => {
     navigateTo('/app/collect')
   }
 
+  // Handling new project name
+  let [nProjectName, setNProjectName] = useState("");
+  let handleNewProjectName = (e) => {
+    setNProjectName(e.target.value);
+  }
+
   // Fetching project from supabase
   let [project, setProject] = useState([]);
   let fetchData = async () => {
@@ -47,7 +53,9 @@ let Project = (props) => {
             <div className="border-2 border-[#cab1ff] rounded-md py-2 min-h-100 select-none">
               {/* Existing project */}
               {
-                project.length === 0 ? <h1 className="text-center font-bricolage text-zinc-600 mt-10">No active projects</h1> : project.map((v, i, a) => <ProjectCard data={v} key={i} handleProjectName={handleProjectName} />)
+                project.length !== 0 ? <section>
+                  <h1 className="text-center font-bricolage text-zinc-900 mt-10">🚀 No active projects</h1> <h1 className="mt-4 font-bricolage text-center mx-4 rounded py-4 text-zinc-600 bg-amber-100 border-2 border-amber-200">Start your next project below</h1>
+                </section> : project.map((v, i, a) => <ProjectCard data={v} key={i} handleProjectName={handleProjectName} />)
               }
 
             </div>
@@ -63,9 +71,13 @@ let Project = (props) => {
               type="text"
               placeholder="Name your project"
               className="border-b-2 border-[#cab1ff] w-full outline-none"
+              onChange={(e) => {
+                handleNewProjectName(e)
+              }}
             />
             <button className="bottom-0 rounded bg-[black] h-10 mt-4 text-white w-full" onClick={() => {
-              navigateTo('/app/collect')
+              getProjectName(nProjectName);
+              navigateTo('/app/collect');
             }}>
               Start Project
             </button>

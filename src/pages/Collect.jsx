@@ -6,7 +6,7 @@ import ProjectName from "../components/ProjectName";
 let Collect = (props) => {
   // Destructuring props
   let { projectName } = props;
-  console.log("Project Name: ", projectName);
+  // console.log("Project Name: ", projectName);
 
   return (
     <>
