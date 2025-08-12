@@ -13,7 +13,7 @@ let Sidebar = (props) => {
   return (
     <>
       <div
-        className={` w-60 bg-[#D8C6FF] relative select-none ${isSidebar ? " " : "hidden"
+        className={` w-60 bg-[#D8C6FF] relative select-none shadow-xl ${isSidebar ? " " : "hidden"
           }`}
       >
         {/* Profile */}
@@ -35,7 +35,7 @@ let Sidebar = (props) => {
         </div>
 
         {/* Features */}
-        <div id="features" className="my-10 font-space">
+        <div id="features" className="my-10">
           {/* Collect */}
           <NavLink to="/app/collect">
             {({ isActive }) => (
@@ -43,8 +43,8 @@ let Sidebar = (props) => {
                 className={`text-[#1C1D46] py-2 px-4 m-4 rounded flex gap-4 items-center ${isActive ? "bg-[#F0F8FF]" : "bg-[#D8C6FF]"
                   }`}
               >
-                <i className="ri-import-line text-lg"></i>
-                <h2 className="text-lg font-semibold ">Collect</h2>
+                <i className="ri-import-line text-xl"></i>
+                <h2 className="text-lg font-bricolage text-zinc-800 ">Collect</h2>
               </div>
             )}
           </NavLink>
@@ -56,8 +56,8 @@ let Sidebar = (props) => {
                 className={`text-[#1C1D46] py-2 px-4 m-4 rounded flex gap-4 items-center ${isActive ? "bg-[#F0F8FF]" : "bg-[#D8C6FF]"
                   }`}
               >
-                <i className="ri-filter-3-line text-lg"></i>
-                <h2 className="text-lg font-semibold">Manage</h2>
+                <i className="ri-filter-3-line text-xl"></i>
+                <h2 className="text-lg font-bricolage text-zinc-800">Manage</h2>
               </div>
             )}
           </NavLink>
@@ -69,8 +69,8 @@ let Sidebar = (props) => {
                 className={`text-[#1C1D46] py-2 px-4 m-4 rounded flex gap-4 items-center ${isActive ? "bg-[#F0F8FF]" : "bg-[#D8C6FF]"
                   }`}
               >
-                <i className="ri-pencil-line text-lg"></i>
-                <h2 className="text-lg font-semibold">Customize</h2>
+                <i className="ri-pencil-line text-xl"></i>
+                <h2 className="text-lg font-bricolage text-zinc-800">Customize</h2>
               </div>
             )}
           </NavLink>
@@ -82,8 +82,8 @@ let Sidebar = (props) => {
                 className={`text-[#1C1D46] py-2 px-4 m-4 rounded flex gap-4 items-center ${isActive ? "bg-[#F0F8FF]" : "bg-[#D8C6FF]"
                   }`}
               >
-                <i className="ri-clipboard-line text-lg"></i>
-                <h2 className="text-lg font-semibold">Embed</h2>
+                <i className="ri-clipboard-line text-xl"></i>
+                <h2 className="text-lg font-bricolage text-zinc-800">Embed</h2>
               </div>
             )}
           </NavLink>

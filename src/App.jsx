@@ -20,8 +20,11 @@ function App() {
   // console.log(supabase);
   let { isLoaded, isSignedIn, user } = useUser();
 
+  let navigateTo = useNavigate();
+
   useEffect(() => {
     if (isLoaded && isSignedIn) {
+      navigateTo('/app/project');
       console.log(`User: ${user.username}`);
     } else if (isLoaded && !isSignedIn) {
       console.log("No user signed in.");
@@ -47,7 +50,6 @@ let Layout = (props) => {
   let { auth } = props;
   let [isLoaded, isSignedIn, user] = auth;
 
-  let navigateTo = useNavigate();
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
       navigateTo('/auth/signUp');
