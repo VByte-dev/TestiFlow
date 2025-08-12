@@ -46,7 +46,7 @@ let Project = (props) => {
 
   return (
     <>
-      <div className="flex justify-center py-40 text-black px-4 sm:px-0">
+      <div className="flex justify-center py-40 text-zinc-900 mx-8">
         <div className="w-full max-w-md">
           {/* Existing Project */}
           <div>
