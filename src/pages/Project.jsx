@@ -53,7 +53,7 @@ let Project = (props) => {
             <div className="border-2 border-[#cab1ff] rounded-md py-2 min-h-100 select-none">
               {/* Existing project */}
               {
-                project.length !== 0 ? <section>
+                project.length === 0 ? <section>
                   <h1 className="text-center font-bricolage text-zinc-900 mt-10">🚀 No active projects</h1> <h1 className="mt-4 font-bricolage text-center mx-4 rounded py-4 text-zinc-600 bg-amber-100 border-2 border-amber-200">Start your next project below</h1>
                 </section> : project.map((v, i, a) => <ProjectCard data={v} key={i} handleProjectName={handleProjectName} />)
               }
