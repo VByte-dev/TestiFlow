@@ -44,7 +44,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <i className="ri-import-line text-xl"></i>
-                <h2 className="text-lg font-bricolage text-zinc-800 ">Collect</h2>
+                <h2 className="text-lg font-space font-semibold text-zinc-800 ">Collect</h2>
               </div>
             )}
           </NavLink>
@@ -57,7 +57,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <i className="ri-filter-3-line text-xl"></i>
-                <h2 className="text-lg font-bricolage text-zinc-800">Manage</h2>
+                <h2 className="text-lg font-space font-semibold text-zinc-800">Manage</h2>
               </div>
             )}
           </NavLink>
@@ -70,7 +70,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <i className="ri-pencil-line text-xl"></i>
-                <h2 className="text-lg font-bricolage text-zinc-800">Customize</h2>
+                <h2 className="text-lg font-space font-semibold text-zinc-800">Customize</h2>
               </div>
             )}
           </NavLink>
@@ -83,7 +83,7 @@ let Sidebar = (props) => {
                   }`}
               >
                 <i className="ri-clipboard-line text-xl"></i>
-                <h2 className="text-lg font-bricolage text-zinc-800">Embed</h2>
+                <h2 className="text-lg font-space font-semibold text-zinc-800">Embed</h2>
               </div>
             )}
           </NavLink>

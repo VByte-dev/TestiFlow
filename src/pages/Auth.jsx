@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import AuthSignIn from "../components/SignIn";
-import AuthSignUp from "../components/SignUp";
+import AuthSignIn from "../components/auth/SignIn";
+import AuthSignUp from "../components/auth/SignUp";
 
 let Auth = () => {
   return (
