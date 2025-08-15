@@ -75,7 +75,7 @@ let Layout = (props) => {
     if (pN.length !== 0) {
       setProjectName(pN);
     } else {
-      setProjectName("Empty Project")
+      setProjectName("Idle");
     }
   }
 
