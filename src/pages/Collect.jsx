@@ -16,7 +16,7 @@ let Collect = (props) => {
   // Active method - Detect which method is active
   let [methodActive, setActive] = useState("");
 
-  // Handling idle project
+  // Handle idle project
   let handleIdle = () => {
     setNoticeMsg("⚠️ Select a project to continue");
   }
@@ -42,16 +42,16 @@ let Collect = (props) => {
           {/* Add manually */}
           <div>
             <div className="bg-[#D8C6FF] border-2 border-[#cab1ff] my-6 px-4 py-2 lg:py-4 rounded cursor-pointer active:bg-[#cab1ff]" onClick={() => {
-              if (projectName !== "" && projectName === "Id") {
-
+              if (projectName !== "" && projectName !== "Idle") {
                 setActive("manual");
               } else {
+                setActive("closeManual");
                 handleIdle();
               }
             }}>
               <h1 className="text-zinc-900 font-bricolage text-center">Add manually</h1>
             </div>
-            <Manual isActive={methodActive} user={user} projectName={projectName} />
+            <Manual isActive={methodActive} user={user} projectName={projectName} setNoticeMsg={setNoticeMsg} />
           </div>
 
         </section>

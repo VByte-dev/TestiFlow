@@ -10,7 +10,7 @@ let Project = (props) => {
   let { getProjectName, user } = props;
 
   // Destructuring user
-  let {id, username} = user;
+  let { id, username } = user;
 
   // Handling project name
   let handleProjectName = (pN) => {
@@ -35,8 +35,12 @@ let Project = (props) => {
       .eq('user_name', username);
 
     if (!error) {
-      setProject(data);
-      // console.log("Data", data);
+      // Remove duplicates based on project_name
+      let uniqueProjects = data.filter(
+        (v, i, a) => a.findIndex(t => t.project_name === v.project_name) === i
+      );
+
+      setProject(uniqueProjects);
     } else {
       console.log(error.message);
     }

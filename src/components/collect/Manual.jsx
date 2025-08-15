@@ -3,12 +3,10 @@ import supabase from "../../lib/supabaseClient";
 
 let Manual = (props) => {
   // Destructuring props
-  let { isActive, user, projectName } = props;
+  let { isActive, user, projectName, setNoticeMsg } = props;
 
   // Destructuring User ID & Username
-  useEffect(()=>{
-    let { id, username } = user;
-  }, [user]);
+  let { id, username } = user;
   // console.log("ID: ", id, "Username: ", username);
 
   // Handling Inputs
@@ -53,7 +51,7 @@ let Manual = (props) => {
       if (error) {
         // console.log(error.message);
       } else {
-        console.log(data);
+        setNoticeMsg("✅ Testimonial added successfully!");
 
         // Clearing the values after the push
         setAuthName("");
@@ -61,6 +59,9 @@ let Manual = (props) => {
         setContent("");
         setRating("");
       }
+    }
+    else {
+      setNoticeMsg("⚠️ Please fill in all fields before submitting.");
     }
   }
 
