@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import supabase from "../../lib/supabaseClient";
 
 let Manual = (props) => {
@@ -6,7 +6,9 @@ let Manual = (props) => {
   let { isActive, user, projectName } = props;
 
   // Destructuring User ID & Username
-  let { id, username } = user;
+  useEffect(()=>{
+    let { id, username } = user;
+  }, [user]);
   // console.log("ID: ", id, "Username: ", username);
 
   // Handling Inputs

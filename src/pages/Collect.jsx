@@ -42,7 +42,7 @@ let Collect = (props) => {
           {/* Add manually */}
           <div>
             <div className="bg-[#D8C6FF] border-2 border-[#cab1ff] my-6 px-4 py-2 lg:py-4 rounded cursor-pointer active:bg-[#cab1ff]" onClick={() => {
-              if (projectName !== "") {
+              if (projectName !== "" && projectName === "Id") {
 
                 setActive("manual");
               } else {
