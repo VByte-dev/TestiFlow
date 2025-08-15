@@ -1,8 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import supabase from "../../lib/supabaseClient";
 
 let Manual = (props) => {
   // Destructuring props
-  let { isActive } = props;
+  let { isActive, user, projectName } = props;
+
+  // Destructuring User ID & Username
+  let { id, username } = user;
+  // console.log("ID: ", id, "Username: ", username);
+
+  // Handling Inputs
+  let [authName, setAuthName] = useState("");
+  let [authRole, setAuthRole] = useState("");
+  let [content, setContent] = useState("");
+  let [rating, setRating] = useState("");
+
+  let handleAuthName = (e) => {
+    setAuthName(e.target.value);
+  }
+  let handleAuthRole = (e) => {
+    setAuthRole(e.target.value);
+  }
+  let handleContent = (e) => {
+    setContent(e.target.value);
+  }
+  let handleRating = (e) => {
+    setRating(e.target.value);
+  }
+
+  // Pushing data to supabase
+  let addTestimonial = async () => {
+    if (authName.length > 0 && authRole.length > 0 && content.length > 0 && rating > 0 && rating < 6) {
+
+      let { data, error } = await supabase
+        .from('testiflow')
+        .insert([
+          {
+            user_id: id,
+            user_name: username,
+            project_name: projectName,
+            author_name: authName,
+            author_role: authRole,
+            content: content,
+            rating: rating
+          }
+        ])
+
+        .select();
+
+      if (error) {
+        // console.log(error.message);
+      } else {
+        console.log(data);
+
+        // Clearing the values after the push
+        setAuthName("");
+        setAuthRole("");
+        setContent("");
+        setRating("");
+      }
+    }
+  }
 
   return (
     <>
@@ -11,31 +69,45 @@ let Manual = (props) => {
           <input
             type="text"
             placeholder="Author name"
-            className="w-full rounded border-2 border-zinc-100 outline-none text-black h-12 my-1  font-semibold p-4"
+            className="w-full rounded border-2 border-zinc-100 outline-none text-black h-12 my-1  font-semibold p-4" value={authName}
+            onChange={(e) => {
+              handleAuthName(e);
+            }}
           />
         </div>
         <div>
           <input
             type="text"
             placeholder="Author role"
-            className="w-full rounded border-2 border-zinc-100 outline-none text-black h-12 my-1  font-semibold p-4"
+            className="w-full rounded border-2 border-zinc-100 outline-none text-black h-12 my-1  font-semibold p-4" value={authRole}
+            onChange={(e) => {
+              handleAuthRole(e);
+            }}
           />
         </div>
         <div>
           <textarea
             placeholder="Write the testimonial..."
-            className="w-full border-2 border-zinc-100 rounded outline-none text-black h-24 my-1  font-semibold p-4"
+            className="w-full border-2 border-zinc-100 rounded outline-none text-black h-24 my-1  font-semibold p-4" value={content}
+            onChange={(e) => {
+              handleContent(e);
+            }}
           ></textarea>
         </div>
         <div>
           <input
             type="number"
             placeholder="Rating (1–5)"
-            className="w-full border-2 border-zinc-100 rounded outline-none text-black h-12  font-semibold p-4"
+            className="w-full border-2 border-zinc-100 rounded outline-none text-black h-12  font-semibold p-4" value={rating}
+            onChange={(e) => {
+              handleRating(e);
+            }}
           />
         </div>
         <div>
-          <button className="bg-black font-space w-full py-2 rounded mt-4">
+          <button className="bg-black font-space w-full py-2 rounded mt-4" onClick={() => {
+            addTestimonial();
+          }}>
             Add Testimonial
           </button>
         </div>

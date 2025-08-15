@@ -3,12 +3,12 @@ import React, { useState } from "react";
 // Components
 import ProjectName from "../components/ProjectName";
 import Notice from "../components/Notice";
-import Manual from "../components/collect/Manual";
+import Manual from "../components/Collect/Manual";
 
 let Collect = (props) => {
   // Destructuring props
-  let { projectName } = props;
-  console.log("Project Name: ", projectName);
+  let { projectName, user } = props;
+  // console.log("Project Name: ", projectName);
 
   // Notice message
   let [noticeMsg, setNoticeMsg] = useState("");
@@ -23,7 +23,7 @@ let Collect = (props) => {
 
   return (
     <>
-      <div className="">
+      <div className="my-10">
         {/* Project Name */}
         <section className="my-8 mx-8 md:my-10 md:mx-10 flex justify-end">
           <ProjectName projectName={projectName} />
@@ -51,7 +51,7 @@ let Collect = (props) => {
             }}>
               <h1 className="text-zinc-900 font-bricolage text-center">Add manually</h1>
             </div>
-            <Manual isActive={methodActive} />
+            <Manual isActive={methodActive} user={user} projectName={projectName} />
           </div>
 
         </section>

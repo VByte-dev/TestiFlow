@@ -102,8 +102,8 @@ let Layout = (props) => {
         {/* Functional Screen */}
         <div className="flex-1 h-screen overflow-y-auto bg-[#F0F8FF]">
           <Routes>
-            <Route path="/project" element={<Project getProjectName={getProjectName} />}></Route>
-            <Route path="/collect" element={<Collect projectName={projectName} />} />
+            <Route path="/project" element={<Project getProjectName={getProjectName} user={user} />}></Route>
+            <Route path="/collect" element={<Collect projectName={projectName} user={user} />} />
             <Route path="/manage" element={<Manage />} />
             <Route path="/customize" element={<Customize />} />
             <Route path="/embed" element={<Embed />} />

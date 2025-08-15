@@ -7,7 +7,10 @@ import ProjectCard from "../components/ProjectCard";
 
 let Project = (props) => {
   // Destructuring props
-  let { getProjectName } = props;
+  let { getProjectName, user } = props;
+
+  // Destructuring user
+  let {id, username} = user;
 
   // Handling project name
   let handleProjectName = (pN) => {
@@ -27,11 +30,13 @@ let Project = (props) => {
   let fetchData = async () => {
     let { data, error } = await supabase
       .from('testiflow')
-      .select("*");
+      .select("*")
+      .eq('user_id', id)
+      .eq('user_name', username);
 
     if (!error) {
       setProject(data);
-      console.log("Data", data);
+      // console.log("Data", data);
     } else {
       console.log(error.message);
     }
