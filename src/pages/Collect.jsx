@@ -3,7 +3,7 @@ import React, { useState } from "react";
 // Components
 import ProjectName from "../components/ProjectName";
 import Notice from "../components/Notice";
-import Manual from "../components/Collect/Manual";
+import Manual from "../components/collect/Manual";
 
 let Collect = (props) => {
   // Destructuring props
