@@ -85,7 +85,7 @@ let Project = (props) => {
               }}
             />
             <button className="bottom-0 rounded bg-[black] h-10 mt-4 text-white w-full" onClick={() => {
-              getProjectName(nProjectName);
+              getProjectName(nProjectName.toLowerCase());
               navigateTo('/app/collect');
             }}>
               Start Project
