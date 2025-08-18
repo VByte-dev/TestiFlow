@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../lib/supabaseClient";
 
+// Components
+import TestiCard from "../components/manage/testiCard";
+
 let Manage = (props) => {
   // Destructuring props
   let { projectName, user } = props;
@@ -35,7 +38,7 @@ let Manage = (props) => {
         {/* Data */}
         <div className=" rounded p-3">
           {testimonials.map((v, i, a) => (
-            <section className="my-2 truncate font-space text-black" key={i}>{JSON.stringify(v)}</section>
+            <TestiCard data={v} />
           ))}
         </div>
       </div>
