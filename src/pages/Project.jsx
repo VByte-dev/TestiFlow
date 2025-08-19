@@ -6,8 +6,11 @@ import supabase from "../lib/supabaseClient";
 import ProjectCard from "../components/ProjectCard";
 
 let Project = (props) => {
+  let navigateTo = useNavigate();
+
   // Destructuring props
   let { getProjectName, user } = props;
+
 
   // Destructuring user
   let { id, username } = user;
@@ -28,21 +31,25 @@ let Project = (props) => {
   // Fetching project from supabase
   let [project, setProject] = useState([]);
   let fetchData = async () => {
-    let { data, error } = await supabase
-      .from('testiflow')
-      .select("*")
-      .eq('user_id', id)
-      .eq('user_name', username);
+    try {
+      let { data, error } = await supabase
+        .from('testiflow')
+        .select("*")
+        .eq('user_id', id)
+        .eq('user_name', username);
 
-    if (!error) {
-      // Remove duplicates based on project_name
-      let uniqueProjects = data.filter(
-        (v, i, a) => a.findIndex(t => t.project_name === v.project_name) === i
-      );
+      if (!error) {
+        // Remove duplicates based on project_name
+        let uniqueProjects = data.filter(
+          (v, i, a) => a.findIndex(t => t.project_name === v.project_name) === i
+        );
 
-      setProject(uniqueProjects);
-    } else {
-      console.log(error.message);
+        setProject(uniqueProjects);
+      } else {
+        console.log(error.message);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -50,8 +57,6 @@ let Project = (props) => {
   useEffect(() => {
     fetchData();
   }, [])
-
-  let navigateTo = useNavigate();
 
   return (
     <>

@@ -62,15 +62,22 @@ let Manage = (props) => {
   // Deleting testimonial
   let navigateTo = useNavigate();
 
-  let deleteTestimonial = async (v) => {
-    let { error } = await supabase
-      .from('testiflow')
-      .delete() // Delete only the necessary data - fetch the proper card detail from the TestiCard
-      .eq('user_id', user.id);
-    if (error) {
-      console.log(error.message);
-    } else {
-      navigateTo("/app/manage");
+  let deleteTestimonial = async (created_at) => {
+    try {
+      let { error } = await supabase
+        .from('testiflow')
+        .delete() // Work on it
+        .eq('user_id', user.id)
+        .eq('created_at', created_at)
+        .eq("project_name", projectName);
+
+      if (error) {
+        console.log(error.message);
+      } else {
+        fetchData();
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -78,7 +85,7 @@ let Manage = (props) => {
     <>
       <div className="">
         {/* Project Name */}
-        <section className="my-8 mx-8 md:my-10 md:mx-10 flex justify-end">
+        <section className="my-10 mx-8 md:my-10 md:mx-10 flex justify-end">
           <ProjectName projectName={projectName} />
         </section>
 
@@ -88,7 +95,7 @@ let Manage = (props) => {
         </section>
 
         {/* Data */}
-        <div className=" rounded p-3 my-10 mx-8 lg:mx-80 mt-16">
+        <div className=" rounded p-3 my-10 mx-2 lg:mx-80 mt-16">
           {testimonials.map((v, i, a) => (
             <TestiCard key={i} data={v} deleteTestimonial={deleteTestimonial} />
           ))}

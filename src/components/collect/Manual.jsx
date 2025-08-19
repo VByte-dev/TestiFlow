@@ -32,32 +32,36 @@ let Manual = (props) => {
   let addTestimonial = async () => {
     if (authName.length > 0 && authRole.length > 0 && content.length > 0 && rating > 0 && rating < 6) {
 
-      let { data, error } = await supabase
-        .from('testiflow')
-        .insert([
-          {
-            user_id: id,
-            user_name: username,
-            project_name: projectName,
-            author_name: authName,
-            author_role: authRole,
-            content: content,
-            rating: rating
-          }
-        ])
+      try {
+        let { data, error } = await supabase
+          .from('testiflow')
+          .insert([
+            {
+              user_id: id,
+              user_name: username,
+              project_name: projectName,
+              author_name: authName,
+              author_role: authRole,
+              content: content,
+              rating: rating
+            }
+          ])
 
-        .select();
+          .select();
 
-      if (error) {
-        // console.log(error.message);
-      } else {
-        setNoticeMsg("✅ Testimonial added successfully!");
+        if (error) {
+          // console.log(error.message);
+        } else {
+          setNoticeMsg("✅ Testimonial added successfully!");
 
-        // Clearing the values after the push
-        setAuthName("");
-        setAuthRole("");
-        setContent("");
-        setRating("");
+          // Clearing the values after the push
+          setAuthName("");
+          setAuthRole("");
+          setContent("");
+          setRating("");
+        }
+      } catch (error) {
+        console.log(error);
       }
     }
     else {

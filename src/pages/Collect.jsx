@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Components
 import ProjectName from "../components/ProjectName";
@@ -6,10 +7,11 @@ import Notice from "../components/Notice";
 import Manual from "../components/collect/Manual";
 
 let Collect = (props) => {
+  let navigateTo = useNavigate();
+
   // Destructuring props
   let { projectName, user } = props;
   // console.log("Project Name: ", projectName);
-
   // Notice message
   let [noticeMsg, setNoticeMsg] = useState("");
 
