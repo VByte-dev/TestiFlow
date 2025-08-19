@@ -3,7 +3,7 @@ import supabase from "../lib/supabaseClient";
 import { useNavigate } from "react-router-dom";
 
 // Components
-import TestiCard from "../components/manage/testiCard";
+import TestiCard from "../components/manage/TestiCard";
 import ProjectName from "../components/ProjectName";
 import Notice from "../components/Notice";
 
