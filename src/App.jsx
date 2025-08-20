@@ -45,6 +45,8 @@ function App() {
 }
 
 let Layout = (props) => {
+  let navigateTo = useNavigate();
+  
   // Destructuring props
   let { auth } = props;
   let [isLoaded, isSignedIn, user] = auth;
