@@ -6,9 +6,14 @@ let Manual = (props) => {
   let { isActive, user, projectName, setNoticeMsg } = props;
 
   // Destructuring User ID & Username
-  const id = user?.id || null;
-  const username = user?.usernamee || null;
-  // console.log("ID: ", id, "Username: ", username);
+  let id = user?.id || null;
+  let username = user?.username || null;
+
+  useEffect(() => {
+    id = user?.id || null;
+    username = user?.username || null;
+    console.log("ID: ", id, "Username: ", username);
+  }, [props, user, projectName]);
 
   // Handling Inputs
   let [authName, setAuthName] = useState("");
@@ -51,7 +56,7 @@ let Manual = (props) => {
           .select();
 
         if (error) {
-          // console.log(error.message);
+          console.log(error.message);
         } else {
           setNoticeMsg("✅ Testimonial added successfully!");
 

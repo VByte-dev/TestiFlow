@@ -10,9 +10,13 @@ import Notice from "../components/Notice";
 let Manage = (props) => {
   // Destructuring props
   let { projectName, user } = props;
-
   // Destructuring user
-  const id = user?.id || null;
+  let id = user?.id || null;
+
+  useEffect(() => {
+    id = user?.id || null;
+  }, [props, user, projectName]);
+
 
   // Fetching data from supabase
   let [testimonials, setTestimonials] = useState([]);
@@ -35,8 +39,9 @@ let Manage = (props) => {
     }
   }
   useEffect(() => {
+    id = user?.id || null;
     fetchData();
-  }, [props])
+  }, [projectName, user])
 
   // Notice message
   let [noticeMsg, setNoticeMsg] = useState("");
@@ -60,7 +65,7 @@ let Manage = (props) => {
     else {
       setNoticeMsg("");
     }
-  }, [projectName, testimonials]);
+  }, [projectName, user, testimonials]);
 
   // Deleting testimonial
   let navigateTo = useNavigate();

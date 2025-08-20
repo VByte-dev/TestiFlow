@@ -56,7 +56,7 @@ let Project = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, [props])
+  }, [props, user])
 
   return (
     <>
