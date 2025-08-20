@@ -11,6 +11,9 @@ let Manage = (props) => {
   // Destructuring props
   let { projectName, user } = props;
 
+  // Destructuring user
+  const id = user?.id || null;
+
   // Fetching data from supabase
   let [testimonials, setTestimonials] = useState([]);
   let fetchData = async () => {
@@ -19,7 +22,7 @@ let Manage = (props) => {
         .from('testiflow')
         .select('*')
         .eq("project_name", projectName)
-        .eq("user_id", user.id);
+        .eq("user_id", id);
 
       if (error) {
         console.log(error.message);
@@ -33,7 +36,7 @@ let Manage = (props) => {
   }
   useEffect(() => {
     fetchData();
-  }, [])
+  }, [props])
 
   // Notice message
   let [noticeMsg, setNoticeMsg] = useState("");

@@ -12,6 +12,7 @@ let Collect = (props) => {
   // Destructuring props
   let { projectName, user } = props;
   // console.log("Project Name: ", projectName);
+
   // Notice message
   let [noticeMsg, setNoticeMsg] = useState("");
 

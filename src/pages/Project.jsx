@@ -11,9 +11,9 @@ let Project = (props) => {
   // Destructuring props
   let { getProjectName, user } = props;
 
-
   // Destructuring user
-  let { id, username } = user;
+  const id = user?.id || null;
+  const username = user?.username || null;
 
   // Handling project name
   let handleProjectName = (pN) => {
@@ -56,7 +56,7 @@ let Project = (props) => {
 
   useEffect(() => {
     fetchData();
-  }, [])
+  }, [props])
 
   return (
     <>

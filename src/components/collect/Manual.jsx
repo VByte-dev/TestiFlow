@@ -6,7 +6,8 @@ let Manual = (props) => {
   let { isActive, user, projectName, setNoticeMsg } = props;
 
   // Destructuring User ID & Username
-  let { id, username } = user;
+  const id = user?.id || null;
+  const username = user?.usernamee || null;
   // console.log("ID: ", id, "Username: ", username);
 
   // Handling Inputs
@@ -86,7 +87,7 @@ let Manual = (props) => {
           <input
             type="text"
             placeholder="Author role"
-            className="w-full rounded border-2 border-zinc-100 outline-none text-black h-12 my-1  font-semibold p-4" value={authRole}
+            className="w-full border-2 rounded border-zinc-100 outline-none text-black h-12 my-1  font-semibold p-4" value={authRole}
             onChange={(e) => {
               handleAuthRole(e);
             }}
@@ -95,7 +96,7 @@ let Manual = (props) => {
         <div>
           <textarea
             placeholder="Write the testimonial..."
-            className="w-full border-2 border-zinc-100 rounded outline-none text-black h-24 my-1  font-semibold p-4" value={content}
+            className="w-full border-2 rounded-t-sm rounded-bl-sm border-zinc-100 outline-none text-black h-24 my-1  font-semibold p-4" value={content}
             onChange={(e) => {
               handleContent(e);
             }}

@@ -17,14 +17,13 @@ import Auth from "./pages/Auth";
 import Sidebar from "./components/Sidebar";
 
 function App() {
+  let navigateTo = useNavigate();
+
   // console.log(supabase);
   let { isLoaded, isSignedIn, user } = useUser();
 
-  let navigateTo = useNavigate();
-
   useEffect(() => {
     if (isLoaded && isSignedIn) {
-      navigateTo('/app/project');
       console.log(`User: ${user.username}`);
     } else if (isLoaded && !isSignedIn) {
       console.log("No user signed in.");
