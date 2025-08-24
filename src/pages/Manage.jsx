@@ -92,18 +92,21 @@ let Manage = (props) => {
   return (
     <>
       <div className="">
+
         {/* Project Name */}
         <section className="my-10 mx-8 md:my-10 md:mx-10 flex justify-end">
           <ProjectName projectName={projectName} />
         </section>
 
         {/* Notice message */}
+
         <section className="mx-8 lg:mx-80 mt-16">
+          <h1 className="font-bricolage text-zinc-600 text-md md:text-lg mb-8">All your testimonials, neatly managed in one place.</h1>
           <Notice message={noticeMsg} />
         </section>
 
         {/* Data */}
-        <div className=" rounded p-3 my-10 mx-2 lg:mx-80 mt-16">
+        <div className=" rounded p-3 my-10 mx-2 lg:mx-80 mt-4">
           {testimonials.map((v, i, a) => (
             <TestiCard key={i} data={v} deleteTestimonial={deleteTestimonial} />
           ))}

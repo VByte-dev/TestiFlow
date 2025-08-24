@@ -4,6 +4,7 @@ import supabase from "../lib/supabaseClient";
 
 // Components
 import ProjectCard from "../components/ProjectCard";
+import Loader from "../components/Loader";
 
 let Project = (props) => {
   let navigateTo = useNavigate();
@@ -14,6 +15,9 @@ let Project = (props) => {
   // Destructuring user
   const id = user?.id || null;
   const username = user?.username || null;
+
+  // Loader state
+  let [isLoading, setIsLoading] = useState(true);
 
   // Handling project name
   let handleProjectName = (pN) => {
@@ -31,28 +35,31 @@ let Project = (props) => {
   // Fetching project from supabase
   let [project, setProject] = useState([]);
   let fetchData = async () => {
+    setIsLoading(true);
+    const start = Date.now();
+
     try {
       let { data, error } = await supabase
-        .from('testiflow')
+        .from("testiflow")
         .select("*")
-        .eq('user_id', id)
-        .eq('user_name', username);
+        .eq("user_id", id)
+        .eq("user_name", username);
 
       if (!error) {
-        // Remove duplicates based on project_name
         let uniqueProjects = data.filter(
           (v, i, a) => a.findIndex(t => t.project_name === v.project_name) === i
         );
-
         setProject(uniqueProjects);
-      } else {
-        console.log(error.message);
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      // enforce minimum 1s loader
+      const elapsed = Date.now() - start;
+      const delay = Math.max(0, 1000 - elapsed);
+      setTimeout(() => setIsLoading(false), delay);
     }
   };
-
 
   useEffect(() => {
     fetchData();
@@ -61,17 +68,14 @@ let Project = (props) => {
   return (
     <>
       <div className="flex justify-center py-40 text-zinc-900 mx-8">
+
         <div className="w-full max-w-md">
           {/* Existing Project */}
           <div>
             <div className="border-2 border-[#cab1ff] rounded-md py-2 min-h-100 select-none">
-              {/* Existing project */}
-              {
-                project.length === 0 ? <section>
-                  <h1 className="text-center font-bricolage text-zinc-900 mt-10">🚀 No active projects</h1> <h1 className="mt-4 font-bricolage text-center mx-4 rounded py-4 text-zinc-600 bg-amber-100 border-2 border-amber-200">Start your next project below</h1>
-                </section> : project.map((v, i, a) => <ProjectCard data={v} key={i} handleProjectName={handleProjectName} />)
-              }
-
+              {isLoading ? <Loader /> : project.length === 0 ? <section>
+                <h1 className="text-center font-bricolage text-zinc-900 mt-10">🚀 No active projects</h1> <h1 className="mt-4 font-bricolage text-center mx-4 rounded py-4 text-zinc-600 bg-amber-100 border-2 border-amber-200 text-sm lg:text-base">Start your next project below</h1>
+              </section> : project.map((v, i, a) => <ProjectCard data={v} key={i} handleProjectName={handleProjectName} />)}
             </div>
 
             {/* Divider */}

@@ -6,9 +6,9 @@ let Notice = (props) => {
 
   return (
     <>
-      <div className={`select-none border-2 border-amber-200 rounded text-zinc-600 bg-amber-100 py-4 text-sm lg:text-base text-center ${message === "" ? "hidden" : ""}
+      <div className={` select-none border-2 border-amber-200 rounded text-zinc-600 bg-amber-100 px-2 py-4 text-sm lg:text-base text-center ${message === "" ? "hidden" : ""}
       `}>
-        <h1 className='font-bricolage'>{message}</h1>
+        <h1 className='font-bricolage truncate'>{message}</h1>
       </div>
     </>
   )

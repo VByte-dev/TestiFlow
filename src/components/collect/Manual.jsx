@@ -71,7 +71,7 @@ let Manual = (props) => {
       }
     }
     else {
-      setNoticeMsg("⚠️ Please fill in all fields before submitting.");
+      setNoticeMsg("⚠️ Oops! Something went wrong.");
     }
   }
 
