@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-let TestiCard = (props) => {
+let ManageCard = (props) => {
 
   // Destructuring props
   let { data, deleteTestimonial } = props;
@@ -45,4 +45,4 @@ let TestiCard = (props) => {
   )
 }
 
-export default TestiCard;
+export default ManageCard;

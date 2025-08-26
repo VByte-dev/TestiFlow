@@ -95,7 +95,7 @@ let Sidebar = (props) => {
             <SignOutButton />
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 };
