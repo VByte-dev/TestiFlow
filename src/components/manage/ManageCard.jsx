@@ -33,7 +33,7 @@ let ManageCard = (props) => {
         <div className='px-2'>
           <h1 className='font-bricolage font-bold text-lg my-2'>Author: <span className='text-zinc-800'>{author_name}</span></h1>
           <h2 className='text-zinc-900 font-medium text-base'>Role: <span className='text-zinc-600'>{author_role}</span></h2>
-          <p className='text-zinc-900 font-medium text-base '>Message: <span className='text-zinc-600'> {content}</span></p>
+          <p className='text-zinc-900 font-medium text-base overflow-auto'>Message: <span className='text-zinc-600'> {content}</span></p>
           <h2 className='flex gap-1 text-lg truncate'>
             {ratingStar.map((v, i) => (
               <i key={i} className="ri-star-fill text-amber-400 mt-2"></i>

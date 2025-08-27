@@ -51,7 +51,7 @@ let TestiWall = (props) => {
 
   return (
     <>
-      <div className='flex flex-wrap bg-indigo-100 rounded-lg justify-center'>
+      <div className='flex flex-wrap w-screen bg-indigo-100 rounded-lg justify-center'>
         {testimonials.map((v, i, a) => <TestiCard data={v} key={i} />)}
       </div>
     </>
