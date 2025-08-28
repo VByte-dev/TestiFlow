@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
 
+// Component
+import TestiWall from "../components/customize/TestiWall";
+
 let Customize = (props) => {
   // Destructuring props
-  let { projectName } = props;
+  let { projectName, user } = props;
 
   return (
     <>
-      <div className="h-full mt-20 mx-4 pt-2 lg:mx-30">
-        <iframe src={`https://usetestiflow.vercel.app/testiwall?projectName=${projectName}`} width={screen} height={screen}></iframe>
+      <div>
+        <TestiWall projectName={projectName} user={user} />
       </div>
     </>
   );

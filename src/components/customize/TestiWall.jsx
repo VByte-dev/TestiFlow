@@ -1,27 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import supabase from '../../lib/supabaseClient';
-import { data, useLocation } from 'react-router-dom';
-
 // Components
 import TestiCard from './TestiCard';
 
 let TestiWall = (props) => {
   // Destructuring props
-  let { user } = props;
-
-  // Fetching Projectname
-  let [projectName, setProjectName] = useState("");
-
-  let location = useLocation();
-  useEffect(() => {
-    let query = new URLSearchParams(location.search);
-    setProjectName(query.get("projectName"));
-  }, []);
+  let { projectName, user } = props;
 
   // Destructuring user
   let id = user?.id || null;
   useEffect(() => {
     id = user?.id || null;
+    console.log(projectName, user);
   }, [props, user]);
 
   // Fetch Testimonials
@@ -51,9 +41,19 @@ let TestiWall = (props) => {
 
   return (
     <>
-      <div className='flex flex-wrap w-screen bg-indigo-100 rounded-lg justify-center'>
-        {testimonials.map((v, i, a) => <TestiCard data={v} key={i} />)}
+<div className='flex justify-center bg-purple-200 mt-20 mx-4 lg:mx-20 p-4 rounded-lg'>
+  <div 
+    className='columns-1 sm:columns-2 lg:columns-3 gap-4 w-full' 
+    id='testimonials'
+  >
+    {testimonials.map((v, i) => (
+      <div key={i} className="mb-4 break-inside-avoid">
+        <TestiCard data={v} />
       </div>
+    ))}
+  </div>
+</div>
+
     </>
   )
 }

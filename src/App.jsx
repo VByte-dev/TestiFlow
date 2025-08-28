@@ -12,7 +12,6 @@ import Manage from "./pages/Manage";
 import Customize from "./pages/Customize";
 import Embed from "./pages/Embed";
 import Auth from "./pages/Auth";
-import TestiWall from "./components/customize/TestiWall";
 
 // Components
 import Sidebar from "./components/Sidebar";
@@ -40,7 +39,6 @@ function App() {
           element={<Layout auth={[isLoaded, isSignedIn, user]} />}
         />
         <Route path="/auth/*" element={<Auth />} />
-        <Route path="/testiwall" element={<TestiWall user={user} />}></Route>
       </Routes>
     </>
   );
