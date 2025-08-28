@@ -54,7 +54,6 @@ let Project = (props) => {
     } catch (error) {
       console.log(error);
     } finally {
-      // enforce minimum 1s loader
       const elapsed = Date.now() - start;
       const delay = Math.max(0, 1000 - elapsed);
       setTimeout(() => setIsLoading(false), delay);

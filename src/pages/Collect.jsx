@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import ProjectName from "../components/ProjectName";
 import Notice from "../components/Notice";
 import Manual from "../components/collect/Manual";
+import Loader from "../components/Loader";
 
 let Collect = (props) => {
   let navigateTo = useNavigate();
@@ -22,6 +23,14 @@ let Collect = (props) => {
   // Handle idle project
   let handleIdle = () => {
     setNoticeMsg("⚠️ Select a project to continue");
+  }
+
+  // Loader state
+  let [isLoading, setIsLoading] = useState(true);
+
+  // Loader
+  let loader = (a) => {
+    setIsLoading(a);
   }
 
   return (
@@ -54,9 +63,8 @@ let Collect = (props) => {
             }}>
               <h1 className="text-zinc-900 font-bricolage text-center">Add manually</h1>
             </div>
-            <Manual isActive={methodActive} user={user} projectName={projectName} setNoticeMsg={setNoticeMsg} />
+            <Manual isActive={methodActive} user={user} projectName={projectName} setNoticeMsg={setNoticeMsg}  />
           </div>
-
         </section>
       </div>
     </>

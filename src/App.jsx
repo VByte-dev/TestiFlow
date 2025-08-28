@@ -107,7 +107,7 @@ let Layout = (props) => {
             <Route path="/collect" element={<Collect projectName={projectName} user={user} />} />
             <Route path="/manage" element={<Manage projectName={projectName} user={user} />} />
             <Route path="/customize" element={<Customize projectName={projectName} user={user} />} />
-            <Route path="/embed" element={<Embed />} />
+            {/* <Route path="/embed" element={<Embed />} /> */}
           </Routes>
         </div>
       </div>

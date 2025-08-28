@@ -37,22 +37,22 @@ let TestiWall = (props) => {
   }
   useEffect(() => {
     fetchData();
-  }, [props]);
+  }, [projectName]);
 
   return (
     <>
-<div className='flex justify-center bg-purple-200 mt-20 mx-4 lg:mx-20 p-4 rounded-lg'>
-  <div 
-    className='columns-1 sm:columns-2 lg:columns-3 gap-4 w-full' 
-    id='testimonials'
-  >
-    {testimonials.map((v, i) => (
-      <div key={i} className="mb-4 break-inside-avoid">
-        <TestiCard data={v} />
+      <div className='flex justify-center bg-purple-200 p-4 rounded-lg'>
+        <div
+          className='columns-1 sm:columns-2 lg:columns-3 gap-4 w-full'
+          id='testimonials'
+        >
+          {testimonials.map((v, i) => (
+            <div key={i} className="mb-4 break-inside-avoid">
+              <TestiCard data={v} />
+            </div>
+          ))}
+        </div>
       </div>
-    ))}
-  </div>
-</div>
 
     </>
   )

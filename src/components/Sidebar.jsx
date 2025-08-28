@@ -76,7 +76,7 @@ let Sidebar = (props) => {
           </NavLink>
 
           {/* Embed */}
-          <NavLink to="/app/embed">
+          {/* <NavLink to="/app/embed">
             {({ isActive }) => (
               <div
                 className={`text-[#1C1D46] py-2 px-4 m-4 rounded flex gap-4 items-center ${isActive ? "bg-[#F0F8FF]" : "bg-[#D8C6FF]"
@@ -86,7 +86,7 @@ let Sidebar = (props) => {
                 <h2 className="text-lg font-space font-semibold text-zinc-800">Embed</h2>
               </div>
             )}
-          </NavLink>
+          </NavLink> */}
         </div>
 
         {/* LogOut */}
