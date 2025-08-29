@@ -11,13 +11,12 @@ let TestiWall = (props) => {
   let id = user?.id || null;
   useEffect(() => {
     id = user?.id || null;
-    console.log(projectName, user);
+    // console.log(projectName, user);
   }, [props, user]);
 
   // Fetch Testimonials
   let [testimonials, setTestimonials] = useState([]);
   let fetchData = async () => {
-    console.log("TestiWall");
     try {
       let { data, error } = await supabase
         .from("testiflow")
@@ -26,13 +25,12 @@ let TestiWall = (props) => {
         .eq("project_name", projectName);
 
       if (!error) {
-        console.log("Data", data);
         setTestimonials(data);
       } else {
         console.log(error.message);
       }
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
   useEffect(() => {

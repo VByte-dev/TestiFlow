@@ -12,7 +12,7 @@ let Manual = (props) => {
   useEffect(() => {
     id = user?.id || null;
     username = user?.username || null;
-    console.log("ID: ", id, "Username: ", username);
+    // console.log("ID: ", id, "Username: ", username);
   }, [props, user, projectName]);
 
   // Handling Inputs

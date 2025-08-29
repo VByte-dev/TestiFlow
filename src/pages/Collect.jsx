@@ -63,7 +63,7 @@ let Collect = (props) => {
             }}>
               <h1 className="text-zinc-900 font-bricolage text-center">Add manually</h1>
             </div>
-            <Manual isActive={methodActive} user={user} projectName={projectName} setNoticeMsg={setNoticeMsg}  />
+            <Manual isActive={methodActive} user={user} projectName={projectName} setNoticeMsg={setNoticeMsg} />
           </div>
         </section>
       </div>

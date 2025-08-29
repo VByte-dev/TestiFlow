@@ -39,7 +39,7 @@ let Manage = (props) => {
         console.log(error.message);
       } else {
         setTestimonials(data);
-        console.log("Testimonials:", testimonials);
+        // console.log("Testimonials:", testimonials);
       }
     } catch (error) {
       console.log(error);
