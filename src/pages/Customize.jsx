@@ -127,7 +127,7 @@ let Customize = (props) => {
                 <button
                   key={key}
                   onClick={() => setSelectedTheme(key)}
-                  className={`flex flex-col items-center text-black rounded-md p-2 border-2 bg-purple-200 transition ${selectedTheme === key
+                  className={`flex flex-col items-center text-black rounded-md p-2 border-2 bg-[#D8C6FF] transition ${selectedTheme === key
                     ? "border-[#cab1ff]"
                     : "border-transparent"
                     }`}
@@ -135,19 +135,19 @@ let Customize = (props) => {
                   {/* color dots */}
                   <div className="flex gap-1 mb-1 ">
                     <span
-                      className="w-5 h-5 rounded-full"
+                      className="w-5 h-5 rounded-full shadow"
                       style={{ backgroundColor: palette.bg }}
                     />
                     <span
-                      className="w-5 h-5 rounded-full"
+                      className="w-5 h-5 rounded-full shadow"
                       style={{ backgroundColor: palette.cardBg }}
                     />
                     <span
-                      className="w-5 h-5 rounded-full"
+                      className="w-5 h-5 rounded-full shadow"
                       style={{ backgroundColor: palette.text }}
                     />
                     <span
-                      className="w-5 h-5 rounded-full"
+                      className="w-5 h-5 rounded-full shadow"
                       style={{ backgroundColor: palette.accent }}
                     />
                   </div>

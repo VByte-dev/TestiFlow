@@ -30,7 +30,7 @@ let TestiCard = (props) => {
 
   return (
     <div
-      className="break-inside-avoid rounded-xl shadow-sm p-4 mb-4 hover:scale-[1.01] transition-transform"
+      className="break-inside-avoid rounded-xl shadow-sm p-4 mb-4 hover:scale-[1.01] transition-colors duration-75"
       style={{ backgroundColor: appliedTheme.cardBg, color: appliedTheme.text }}
     >
       <h1
