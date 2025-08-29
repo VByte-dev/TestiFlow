@@ -58,9 +58,19 @@ let Manage = (props) => {
   let [noticeMsg, setNoticeMsg] = useState("");
 
   // Handle idle project
+  let [emptyProject, setEmptyProject] = useState(false);
+
   let handleIdle = () => {
     setNoticeMsg("⚠️ Select a project before managing testimonials");
   }
+  useEffect(() => {
+    if (projectName !== "" && projectName !== "Idle") {
+      setEmptyProject(true);
+    } else {
+      setEmptyProject(false);
+      handleIdle();
+    }
+  }, [])
 
   // Handle empty testimonial
   let handleEmpty = () => {
@@ -112,11 +122,14 @@ let Manage = (props) => {
 
         {isLoading ? <>
           <div className=" mx-2 lg:mx-80"><Loader /></div></> : <>
-          {/* Notice message */}
 
+          {/* Notice message */}
           <section className="mx-8 lg:mx-80 mt-16">
-            <h1 className="font-bricolage text-zinc-600 text-md md:text-lg mb-8">All your testimonials, neatly managed in one place.</h1>
             <Notice message={noticeMsg} />
+          </section>
+
+          <section className={`mx-8 lg:mx-80 mt-16  ${emptyProject ? "" : "hidden"}`}>
+            <h1 className="font-bricolage text-zinc-600 text-md md:text-lg mb-8">All your testimonials, neatly managed in one place.</h1>
           </section>
 
           {/* Data */}

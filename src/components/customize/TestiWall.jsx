@@ -5,7 +5,7 @@ import TestiCard from './TestiCard';
 
 let TestiWall = (props) => {
   // Destructuring props
-  let { projectName, user } = props;
+  let { projectName, user, theme } = props;
 
   // Destructuring user
   let id = user?.id || null;
@@ -34,28 +34,30 @@ let TestiWall = (props) => {
     } catch (error) {
       console.log(error.message);
     }
-  }
+  };
   useEffect(() => {
     fetchData();
   }, [projectName]);
 
   return (
     <>
-      <div className='flex justify-center bg-purple-200 p-4 rounded-lg'>
+      <div
+        className="flex justify-center p-4 rounded-lg transition-colors duration-500 bg-[#EADDFF]"
+        style={{ backgroundColor: theme?.bg || "#f3e8ff" }}
+      >
         <div
-          className='columns-1 sm:columns-2 lg:columns-3 gap-4 w-full'
-          id='testimonials'
+          className="columns-1 sm:columns-2 lg:columns-3 gap-4 w-full"
+          id="testimonials"
         >
           {testimonials.map((v, i) => (
             <div key={i} className="mb-4 break-inside-avoid">
-              <TestiCard data={v} />
+              <TestiCard data={v} theme={theme} />
             </div>
           ))}
         </div>
       </div>
-
     </>
-  )
-}
+  );
+};
 
 export default TestiWall;
