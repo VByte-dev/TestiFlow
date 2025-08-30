@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import * as htmlTOImage from "html-to-image";
 
 // Component
@@ -12,19 +12,15 @@ let Customize = (props) => {
 
   // Handle download state
   let [isDownload, setIsDownload] = useState(false);
-  let handleDownloadState = () => {
-    setIsDownload((preV) => !preV);
-  };
+  let handleDownloadState = () => setIsDownload((preV) => !preV);
 
   // Handle theme state (open/close)
   let [isThemeOpen, setIsThemeOpen] = useState(false);
-  let handleThemeState = () => {
-    setIsThemeOpen((preV) => !preV);
-  };
+  let handleThemeState = () => setIsThemeOpen((preV) => !preV);
 
   // Handle download
-  let [height, setHeight] = useState();
-  let [width, setWidth] = useState();
+  let [height, setHeight] = useState("");
+  let [width, setWidth] = useState("");
   let [fileName, setFileName] = useState(projectName);
 
   let handleDownload = async () => {
@@ -36,8 +32,8 @@ let Customize = (props) => {
         width: Number(width),
         height: Number(height),
         style: {
-          width: width + "px",
-          height: height + "px",
+          width: width ? width + "px" : "auto",
+          height: height ? height + "px" : "auto",
         },
         skipFonts: false,
         pixelRatio: 4,
@@ -71,7 +67,27 @@ let Customize = (props) => {
   }, []);
 
   // Theme state
-  let [selectedTheme, setSelectedTheme] = useState("bloom");
+  let [selectedTheme, setSelectedTheme] = useState("default");
+
+  // Column tracker
+  let [columns, setColumns] = useState(1);
+  const wallRef = useRef(null);
+
+  useEffect(() => {
+    if (!wallRef.current) return;
+
+    const observer = new ResizeObserver((entries) => {
+      for (let entry of entries) {
+        const newWidth = entry.contentRect.width;
+        if (newWidth < 500) setColumns(1);
+        else if (newWidth < 900) setColumns(2);
+        else setColumns(3);
+      }
+    });
+    observer.observe(wallRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   // Themes
   const themes = {
@@ -79,7 +95,7 @@ let Customize = (props) => {
       bg: "#EADDFF",
       cardBg: "white",
       text: "#000000",
-      accent: "#4F3B7E"
+      accent: "#4F3B7E",
     },
     shadowfire: {
       bg: "#121212",
@@ -113,7 +129,7 @@ let Customize = (props) => {
             onClick={handleThemeState}
           >
             <h1 className="text-zinc-900 font-bricolage text-center">
-              Choose Theme
+              Appearance
             </h1>
           </div>
 
@@ -151,19 +167,31 @@ let Customize = (props) => {
                       style={{ backgroundColor: palette.accent }}
                     />
                   </div>
-
                 </button>
               ))}
             </div>
           </div>
 
           {/* Testimonial Wall */}
-          <div id="testimonialWall">
-            <TestiWall
-              projectName={projectName}
-              user={user}
-              theme={themes[selectedTheme]}
-            />
+          <div className="flex justify-center">
+            <div
+              id="testimonialWall"
+              ref={wallRef}
+              style={{
+                width: width ? `${width}px` : "100%",
+                height: height ? `${height}px` : "auto",
+                overflow: "hidden",
+                backgroundColor: themes[selectedTheme].bg,
+              }}
+              className="rounded-xl"
+            >
+              <TestiWall
+                projectName={projectName}
+                user={user}
+                theme={themes[selectedTheme]}
+                columns={columns}
+              />
+            </div>
           </div>
 
           {/* Download */}
@@ -186,30 +214,24 @@ let Customize = (props) => {
             >
               <input
                 type="number"
-                className="w-full rounded-lg py-2 border-2 border-[#cab1ff] bg-purple-200 outline-none my-1 not-only:text-black font-space px-4"
-                placeholder="Height (px)"
-                value={height}
-                onChange={(e) => {
-                  setHeight(e.target.value);
-                }}
+                className="w-full rounded-lg py-2 border-2 text-black border-[#cab1ff] bg-purple-200 outline-none my-1 font-space px-4"
+                placeholder="Width (px)"
+                value={width}
+                onChange={(e) => setWidth(e.target.value)}
               />
               <input
                 type="number"
-                className="w-full rounded-lg py-2 border-2 border-[#cab1ff] bg-purple-200 outline-none my-1 not-only:text-black font-space px-4"
-                placeholder="Width (px)"
-                value={width}
-                onChange={(e) => {
-                  setWidth(e.target.value);
-                }}
+                className="w-full rounded-lg py-2 border-2 text-black border-[#cab1ff] bg-purple-200 outline-none my-1 font-space px-4"
+                placeholder="Height (px)"
+                value={height}
+                onChange={(e) => setHeight(e.target.value)}
               />
               <input
                 type="text"
-                className="w-full rounded-lg py-2 border-2 border-[#cab1ff] bg-purple-200 outline-none my-1 not-only: text-black font-space px-4"
+                className="w-full rounded-lg py-2 border-2 text-black border-[#cab1ff] bg-purple-200 outline-none my-1 font-space px-4"
                 placeholder="Filename"
                 value={fileName}
-                onChange={(e) => {
-                  setFileName(e.target.value);
-                }}
+                onChange={(e) => setFileName(e.target.value)}
               />
               <button
                 className="w-full bg-[#cab1ff] py-3 rounded-lg mt-4 text-zinc-800 font-bricolage"

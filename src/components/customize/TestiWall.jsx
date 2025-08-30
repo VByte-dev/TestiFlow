@@ -1,21 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import supabase from '../../lib/supabaseClient';
-// Components
-import TestiCard from './TestiCard';
+import React, { useEffect, useState } from "react";
+import supabase from "../../lib/supabaseClient";
+import TestiCard from "./TestiCard";
 
-let TestiWall = (props) => {
-  // Destructuring props
-  let { projectName, user, theme } = props;
-
-  // Destructuring user
+let TestiWall = ({ projectName, user, theme, columns = 3 }) => {
   let id = user?.id || null;
-  useEffect(() => {
-    id = user?.id || null;
-    // console.log(projectName, user);
-  }, [props, user]);
 
-  // Fetch Testimonials
   let [testimonials, setTestimonials] = useState([]);
+
   let fetchData = async () => {
     try {
       let { data, error } = await supabase
@@ -33,28 +24,28 @@ let TestiWall = (props) => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, [projectName]);
 
   return (
-    <>
+    <div
+      className="p-4 rounded-lg"
+      style={{ backgroundColor: theme?.bg || "#f3e8ff" }}
+    >
       <div
-        className="flex justify-center p-4 rounded-lg transition-colors duration-500 bg-[#EADDFF]"
-        style={{ backgroundColor: theme?.bg || "#f3e8ff" }}
+        id="testimonials"
+        style={{
+          columnCount: columns,  // 👈 dynamic based on user input
+          columnGap: "1rem",
+        }}
       >
-        <div
-          className="columns-1 sm:columns-2 lg:columns-3 gap-4 w-full"
-          id="testimonials"
-        >
-          {testimonials.map((v, i) => (
-            <div key={i} className="mb-4 break-inside-avoid">
-              <TestiCard data={v} theme={theme} />
-            </div>
-          ))}
-        </div>
+        {testimonials.map((v, i) => (
+          <TestiCard key={i} data={v} theme={theme} />
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
