@@ -22,6 +22,7 @@ let Customize = (props) => {
   let [height, setHeight] = useState("");
   let [width, setWidth] = useState("");
   let [fileName, setFileName] = useState(projectName);
+  let [pixelRatio, setPixelRatio] = useState(4); // 👈 NEW state for pixel ratio
 
   let handleDownload = async () => {
     try {
@@ -36,7 +37,37 @@ let Customize = (props) => {
           height: height ? height + "px" : "auto",
         },
         skipFonts: false,
-        pixelRatio: 4,
+        pixelRatio: Number(pixelRatio) || 1, // 👈 use user input, fallback 1
+        fontFaces: [
+          {
+            family: "Bricolage Grotesque",
+            style: "normal",
+            weight: "700",
+            source:
+              "url(https://fonts.gstatic.com/s/bricolagegrotesque/v9/0FlQVMPQxEXSZ5TX2ICD3Gguj-J5nlQ.woff2)",
+          },
+          {
+            family: "Space Grotesk",
+            style: "normal",
+            weight: "400",
+            source:
+              "url(https://fonts.gstatic.com/s/spacegrotesk/v15/pe0qMImSLYBIv1o4X1M8cce9.woff2)",
+          },
+          {
+            family: "Bebas Neue",
+            style: "normal",
+            weight: "400",
+            source:
+              "url(https://fonts.gstatic.com/s/bebasneue/v17/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2)",
+          },
+          {
+            family: "DM Sans",
+            style: "normal",
+            weight: "400",
+            source:
+              "url(https://fonts.gstatic.com/s/dmsans/v15/rP2Hp2ywxg089UriCZ2c.woff2)",
+          },
+        ],
       });
       const link = document.createElement("a");
       link.download = fileName + ".png";
@@ -135,18 +166,20 @@ let Customize = (props) => {
 
           {/* Theme Selector */}
           <div
-            className={`bg-purple-100 p-3 my-6 rounded-lg ${!isThemeOpen ? "hidden" : ""
-              }`}
+            className={`bg-purple-100 p-3 my-6 rounded-lg ${
+              !isThemeOpen ? "hidden" : ""
+            }`}
           >
             <div className="flex gap-4">
               {Object.entries(themes).map(([key, palette]) => (
                 <button
                   key={key}
                   onClick={() => setSelectedTheme(key)}
-                  className={`flex flex-col items-center text-black rounded-md p-2 border-2 bg-[#D8C6FF] transition ${selectedTheme === key
-                    ? "border-[#cab1ff]"
-                    : "border-transparent"
-                    }`}
+                  className={`flex flex-col items-center text-black rounded-md p-2 border-2 bg-[#D8C6FF] transition ${
+                    selectedTheme === key
+                      ? "border-[#cab1ff]"
+                      : "border-transparent"
+                  }`}
                 >
                   {/* color dots */}
                   <div className="flex gap-1 mb-1 ">
@@ -209,8 +242,9 @@ let Customize = (props) => {
               </h1>
             </div>
             <div
-              className={`bg-purple-100 p-3 rounded-xl ${!isDownload ? "hidden" : ""
-                }`}
+              className={`bg-purple-100 p-3 rounded-xl ${
+                !isDownload ? "hidden" : ""
+              }`}
             >
               <input
                 type="number"
@@ -225,6 +259,15 @@ let Customize = (props) => {
                 placeholder="Height (px)"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
+              />
+              <input
+                type="number"
+                min="1"
+                max="10"
+                className="w-full rounded-lg py-2 border-2 text-black border-[#cab1ff] bg-purple-200 outline-none my-1 font-space px-4"
+                placeholder="Pixel Ratio (default 4)"
+                value={pixelRatio}
+                onChange={(e) => setPixelRatio(e.target.value)}
               />
               <input
                 type="text"
