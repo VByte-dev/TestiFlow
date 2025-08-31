@@ -183,7 +183,7 @@ let Customize = (props) => {
                 overflow: "hidden",
                 backgroundColor: themes[selectedTheme].bg,
               }}
-              className="rounded-xl"
+              className="rounded-xl "
             >
               <TestiWall
                 projectName={projectName}
