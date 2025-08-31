@@ -36,7 +36,25 @@ cyan: #00ffff;
   font-optical-sizing: auto;
   font-style: normal;
 }
+/* Bricolage Grotesque */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
+/* Space Grotesk */
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
 .container {
   width: 100%;
   height: 100%;
@@ -76,9 +94,9 @@ cyan: #00ffff;
   height: 100%;
 }
 body {
-  background-color: #F0F8FF;
+  background-color: #f0f8ff;
   color: white;
 }
-button{
+button {
   user-select: none;
 }
