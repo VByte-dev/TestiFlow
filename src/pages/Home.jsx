@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 let Home = () => {
+  let navigateTo = useNavigate();
   return (
     <>
       <div className="bg-black">
@@ -29,7 +30,7 @@ let Home = () => {
                 without burning time or budget.
               </span>
             </h1>
-            {/* Waitlist CTA using Formspree */}
+            {/* Waitlist CTA using Formspree
             <form
               action="https://formspree.io/f/xovlwqev"
               method="POST"
@@ -42,16 +43,23 @@ let Home = () => {
                 placeholder="Your best email"
                 className="border-y-2 border-x-2 border-[#ff1493] font-space px-4 py-2 outline-none w-full sm:w-2/3"
               />
-              <button
-                type="submit"
-                className="border-2 border-[#ff1493] bg-[#ff1493] active:bg-pink-700 font-space text-white px-4 py-2 w-full sm:w-1/3 mx-2 my-2"
-              >
-                Join Waitlist
-              </button>
-            </form>
+              <div className="flex justify-center w-full">
+                <button
+                  type="submit"
+                  className=" border-2 border-[#ff1493] bg-[#ff1493] active:bg-pink-700 font-space text-white px-4 py-2 w-full sm:w-1/3 mx-2 my-2"
+                >
+                  Start Now
+                </button>
+              </div>
+            </form> */}
+            <div className="text-center my-6 w-full">
+              <a href="/auth/signup" className="text-border-2 border-[#ff1493] bg-[#ff1493] active:bg-pink-700 font-space text-white px-4 py-2 w-full">
+                Make Testimonials Work
+              </a>
+            </div>
 
             <p className="font-space opacity-90 text-center mt-8 text-sm sm:text-base md:text-base">
-              🌿 Join early, because the best tools are built with you.
+              🌿 Simple, fast, and built for makers like you.
             </p>
 
             {/* Quote */}

@@ -53,7 +53,7 @@ let Layout = (props) => {
 
   useEffect(() => {
     if (isLoaded && !isSignedIn) {
-      navigateTo('/auth/signUp');
+      navigateTo('/auth/signup');
     }
   }, [isLoaded])
 

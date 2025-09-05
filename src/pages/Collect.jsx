@@ -8,6 +8,7 @@ import Manual from "../components/collect/Manual";
 import Loader from "../components/Loader";
 
 let Collect = (props) => {
+
   let navigateTo = useNavigate();
 
   // Destructuring props
