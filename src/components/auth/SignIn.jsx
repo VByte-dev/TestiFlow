@@ -9,7 +9,6 @@ let AuthSignIn = () => {
           afterSignInUrl={'/app'}
           appearance={{
             variables: {
-              fontFamily: "Bricolage Grotesque",
               colorShadow: "none",
             },
             elements: {

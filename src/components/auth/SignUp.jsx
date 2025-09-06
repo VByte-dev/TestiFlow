@@ -22,7 +22,6 @@ let AuthSignUp = () => {
           afterSignUpUrl={"/app"}
           appearance={{
             variables: {
-              fontFamily: "Bricolage Grotesque",
               colorShadow: "none",
             },
             elements: {
