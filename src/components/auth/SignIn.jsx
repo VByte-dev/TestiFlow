@@ -6,6 +6,8 @@ let AuthSignIn = () => {
     <>
       <div>
         <SignIn
+          afterSignInUrl={'/app'}
+          signUpUrl={"/auth/signup"}
           appearance={{
             variables: {
               colorShadow: "none",
